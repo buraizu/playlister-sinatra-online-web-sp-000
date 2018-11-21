@@ -8,11 +8,11 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/songs/:slug' do
-    params[:song][:genre].each do |genre|
-      @song.genres << genre 
-    end
+
     @song = Song.find_by_slug(params[:slug])
-      binding.pry
+    params[:song][:genre].each do |genre|
+      @song.genres << genre
+    end
     @song.update(params[:song])
 
   end
