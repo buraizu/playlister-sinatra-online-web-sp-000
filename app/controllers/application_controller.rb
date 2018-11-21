@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
 
 
     @song.update(params[:song])
-    @song.update(params[:song][:genre])
+    
     @song.save
     redirect "songs/#{@song.slug}"
   end
