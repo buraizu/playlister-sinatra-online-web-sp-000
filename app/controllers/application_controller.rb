@@ -16,6 +16,7 @@ class ApplicationController < Sinatra::Base
         @song.genres << genre
       end
     end
+    binding.pry
     @song.update(params[:song])
 
     @song.save
