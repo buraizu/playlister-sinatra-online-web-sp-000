@@ -11,10 +11,10 @@ class ApplicationController < Sinatra::Base
 
     @song = Song.find_by_slug(params[:slug])
     @song.genres.clear
-    genre = Genre.find_by_id(params[:song][:genre])
-    binding.pry
-    @song.genres << genre
-
+    genre = Genre.find_by_name(params[:song][:genre])
+    
+    @song.genres = genre
+binding.pry
     @song.update(params[:song])
 
     @song.save
