@@ -10,13 +10,14 @@ class ApplicationController < Sinatra::Base
   patch '/songs/:slug' do
 
     @song = Song.find_by_slug(params[:slug])
+    binding.pry
     params[:song][:genre].each do |genre|
       @song.genres << genre
-      binding.pry
+      
     end
     @song.update(params[:song])
-
     @song.save
+    redirect "songs/#{@song.slug}"
   end
 
 end
