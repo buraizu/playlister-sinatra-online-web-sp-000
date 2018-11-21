@@ -20,7 +20,7 @@
   <br></br>
 
   <% @genres.each do |genre| %>
-    <input type="checkbox" name="song[genre]" id="<%= genre.id %>" value="<%= genre.id %>"
+    <input type="checkbox" name="song[genre]" id="<%= genre.id %>" value="<%= genre.name %>"
     <% @song.genres.each do |song_genre| %>
       <%= 'checked' if song_genre == genre %>></input><span><%= genre.name %></span>
     <% end %>
