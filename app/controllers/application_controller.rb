@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
 
     song.update(params[:song])
 
-    
+
     redirect "songs/#{song.slug}"
 
   end
