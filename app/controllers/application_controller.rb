@@ -10,10 +10,10 @@ class ApplicationController < Sinatra::Base
   patch '/songs/:slug' do
 
     @song = Song.find_by_slug(params[:slug])
-
+    binding.pry
     Genre.all.each do |genre|
       if genre.id.to_s == params[:song][:genre]
-        binding.pry
+
         @song.genres << genre
       end
     end
