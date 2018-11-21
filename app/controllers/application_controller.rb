@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
     song = Song.find_by_slug(params[:slug])
 
     song.genres = []
-
+    song.artist = Artist.find_or_create_by(:name => params[:artist_name])
     song.save
 
 
