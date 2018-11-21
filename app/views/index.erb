@@ -45,3 +45,17 @@ end -->
   <input type="submit" value="Save" />
 
 </form> -->
+
+<!-- patch '/songs/:slug' do
+
+  @song = Song.find_by_slug(params[:slug])
+  @song.genres.clear
+  genre = Genre.find_by_name(params[:song][:genre])
+  @song.genres << genre
+
+  @song.update(params[:song])
+
+  @song.save
+  redirect "songs/#{@song.slug}"
+end -->
+
