@@ -8,18 +8,16 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/songs/:slug' do
-
-    @song = Song.find_by_slug(params[:slug])
-    @song.genres.clear
-    genre = Genre.find_by_name(params[:song][:genre])
-    @song.genres << genre
-
-    @song.update(params[:song])
-
-    @song.save
-    redirect "songs/#{@song.slug}"
-  end
-
+  binding.pry
+  song = Song.find_by_slug(params[:slug])
+  song.update(params[:song])
+  binding.pry
+  song.artist = Artist.find_or_create_by(:name => params["artist_name"])
+  song.save
+  binding.pry
+  flash[:message] = "Successfully updated song."
+  redirect :"/songs/#{song.slug}"
+end
 end
 
 {"_method"=>"patch",
