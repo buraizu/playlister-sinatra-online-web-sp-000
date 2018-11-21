@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
     @song.genres.clear
     genre = Genre.find_by_name(params[:song][:genre])
     @song.genres << genre
-  
+
     @song.update(params[:song])
 
     @song.save
