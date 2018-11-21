@@ -12,13 +12,13 @@ class ApplicationController < Sinatra::Base
     song = Song.find_by_slug(params[:slug])
 
     song.genres = []
-    binding.pry
 
+    song.save
 
 
     song.update(params[:song])
 
-    song.save
+    
     redirect "songs/#{song.slug}"
 
   end
