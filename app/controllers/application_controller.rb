@@ -13,10 +13,11 @@ class ApplicationController < Sinatra::Base
 
     Genre.all.each do |genre|
       if genre.id.to_s == params[:song][:genre]
+        binding.pry
         @song.genres << genre
       end
     end
-    binding.pry
+    
     @song.update(params[:song])
 
     @song.save
