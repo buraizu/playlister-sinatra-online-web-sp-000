@@ -11,10 +11,9 @@ class ApplicationController < Sinatra::Base
 
     song = Song.find_by_slug(params[:slug])
 
-    song.genres.clear
+    song.artist = Artist.find_or_create_by_name(params[:song][:artist])
     binding.pry
-    genre = Genre.find_by_name(params[:song][:genre])
-    song.genres << genre
+    
 
     song.update(params[:song])
 
