@@ -10,8 +10,9 @@ class ApplicationController < Sinatra::Base
   patch '/songs/:slug' do
 
     @song = Song.find_by_slug(params[:slug])
+      binding.pry
     @song.update(params[:song])
-    binding.pry
+  
   end
 
 end
