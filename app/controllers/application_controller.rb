@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
       binding.pry
     end
     @song.update(params[:song])
-    
+
     @song.save
   end
 
