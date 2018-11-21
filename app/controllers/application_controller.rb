@@ -11,7 +11,10 @@ class ApplicationController < Sinatra::Base
 
     @song = Song.find_by_slug(params[:slug])
 
-
+    Genre.all.each do |genre|
+      if genre.id.to_s == params[:song][:genre]
+        @song.genres << genre
+      end
     @song.update(params[:song])
     
     @song.save
