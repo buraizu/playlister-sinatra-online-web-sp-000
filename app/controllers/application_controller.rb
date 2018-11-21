@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
     binding.pry
     params[:song][:genre].each do |genre|
       @song.genres << genre
-      
+
     end
     @song.update(params[:song])
     @song.save
