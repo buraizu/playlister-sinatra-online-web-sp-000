@@ -12,9 +12,10 @@ class ApplicationController < Sinatra::Base
     @song = Song.find_by_slug(params[:slug])
     params[:song][:genre].each do |genre|
       @song.genres << genre
+      binding.pry
     end
     @song.update(params[:song])
-    binding.pry
+    
     @song.save
   end
 
