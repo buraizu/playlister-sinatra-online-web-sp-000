@@ -15,8 +15,9 @@ class ApplicationController < Sinatra::Base
       if genre.id.to_s == params[:song][:genre]
         @song.genres << genre
       end
+    end
     @song.update(params[:song])
-    
+
     @song.save
     redirect "songs/#{@song.slug}"
   end
