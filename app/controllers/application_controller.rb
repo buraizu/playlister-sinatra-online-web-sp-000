@@ -19,6 +19,3 @@ class ApplicationController < Sinatra::Base
 
 end
 
-{"_method"=>"patch",
- "song"=>{"name"=>"Get Away", "artist"=>"adfs", "genre"=>"1"},
- "slug"=>"get-away"}
